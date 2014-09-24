@@ -1,4 +1,5 @@
 Alien::Base
-Env
+Capture::Tiny
+File::chdir
 Module::Build
 Test::More
