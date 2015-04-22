@@ -13,6 +13,7 @@ sub new
   my($class, %args) = @_;
   
   $args{alien_name} = 'patch';
+  $args{alien_stage_install} = 1;
   $args{alien_repository} = {
     protocol => 'http',
     host     => 'ftp.gnu.org',
