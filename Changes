@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Added exe method
 
 0.04      2015-04-22 11:33:15 -0400
   - use alien_stage_install

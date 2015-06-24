@@ -22,6 +22,16 @@ it, then great, this module is a no-op.  If it does not, then
 it will download and install it into a private location so that
 it can be added to the C<PATH> when this module is used.
 
+=head1 METHODS
+
+=head2 exe
+
+ my $exe = Alien::patch->exe;
+
+Returns the command to run patch on your system.  For now it simply
+adds the C<--binary> option on Windows (C<MSWin32> but not C<cygwin>)
+which is usually what you want.
+
 =cut
 
 my $in_path;
@@ -33,6 +43,11 @@ sub import
   unshift @PATH, File::Spec->catdir(__PACKAGE__->dist_dir, 'bin');
   # only do it once.
   $in_path = 1;
+}
+
+sub exe
+{
+  $^O eq 'MSWin32' ? 'patch --binary' : 'patch';
 }
 
 1;
