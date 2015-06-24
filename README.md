@@ -16,6 +16,16 @@ it, then great, this module is a no-op.  If it does not, then
 it will download and install it into a private location so that
 it can be added to the `PATH` when this module is used.
 
+# METHODS
+
+## exe
+
+    my $exe = Alien::patch->exe;
+
+Returns the command to run patch on your system.  For now it simply
+adds the `--binary` option on Windows (`MSWin32` but not `cygwin`)
+which is usually what you want.
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>
