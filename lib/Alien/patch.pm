@@ -50,4 +50,24 @@ sub exe
   $^O eq 'MSWin32' ? 'patch --binary' : 'patch';
 }
 
+=head1 HELPERS
+
+=head2 patch
+
+ %{patch}
+
+When used with L<Alien::Base::ModuleBuild> in a C<alien_build_commands> or C<alien_install_commands>,
+this helper will be replaced by either C<patch> (Unix and cygwin) or C<patch --binary> (MSWin32).
+
+=cut
+
+sub alien_helper
+{
+  return {
+    patch => sub {
+      Alien::patch->exe;
+    },
+  }
+}
+
 1;

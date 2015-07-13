@@ -26,6 +26,15 @@ Returns the command to run patch on your system.  For now it simply
 adds the `--binary` option on Windows (`MSWin32` but not `cygwin`)
 which is usually what you want.
 
+# HELPERS
+
+## patch
+
+    %{patch}
+
+When used with [Alien::Base::ModuleBuild](https://metacpan.org/pod/Alien::Base::ModuleBuild) in a `alien_build_commands` or `alien_install_commands`,
+this helper will be replaced by either `patch` (Unix and cygwin) or `patch --binary` (MSWin32).
+
 # AUTHOR
 
 Graham Ollis <plicease@cpan.org>

@@ -12,6 +12,7 @@ pod_coverage:
   # for either Class or method.
   private:
     - Alien::patch::Install::Files#Inline
+    - Alien::patch#alien_helper
 
 unused_vars:
   skip: 0
