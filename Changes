@@ -2,6 +2,8 @@ Revision history for {{$dist->name}}
 
 {{$NEXT}}
 
+0.06      2015-07-13 07:28:49 -0400
+
 0.05      2015-06-24 11:00:46 -0400
   - Added exe method
 
