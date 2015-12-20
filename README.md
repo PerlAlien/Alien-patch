@@ -1,4 +1,4 @@
-# Alien::patch
+# Alien::patch [![Build Status](https://secure.travis-ci.org/plicease/Alien-patch.png)](http://travis-ci.org/plicease/Alien-patch)
 
 Find or build patch
 
@@ -37,7 +37,7 @@ this helper will be replaced by either `patch` (Unix and cygwin) or `patch --bin
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Graham Ollis &lt;plicease@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
