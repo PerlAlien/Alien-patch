@@ -1,4 +1,4 @@
-# Alien::patch [![Build Status](https://secure.travis-ci.org/plicease/Alien-patch.png)](http://travis-ci.org/plicease/Alien-patch)
+# Alien::patch [![Build Status](https://secure.travis-ci.org/Perl5-Alien/Alien-patch.png)](http://travis-ci.org/Perl5-Alien/Alien-patch)
 
 Find or build patch
 
