@@ -4,27 +4,7 @@ use strict;
 use warnings;
 use base qw( Alien::Base::ModuleBuild );
 use Capture::Tiny qw( capture );
-use Config;
-use File::Temp qw( tempdir );
 use File::chdir;
-
-sub new
-{
-  my($class, %args) = @_;
-  
-  $args{alien_name} = 'patch';
-  $args{alien_stage_install} = 1;
-  $args{alien_repository} = {
-    protocol => 'http',
-    host     => 'ftp.gnu.org',
-    location => "/gnu/patch/",
-    pattern  => qr{^patch-.*\.tar\.gz$},
-  };
-  
-  my $self = $class->SUPER::new(%args);
-  
-  $self;
-}
 
 sub alien_check_installed_version
 {
