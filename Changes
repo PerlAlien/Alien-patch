@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - implicit modification of PATH is now deprecated
+    (see https://metacpan.org/pod/Alien::patch#CAVEATS for details)
 
 0.08      2016-02-05 23:00:18 -0500
   - Prune experimental t/run.t test
