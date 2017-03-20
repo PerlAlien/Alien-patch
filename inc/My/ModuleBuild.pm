@@ -13,7 +13,7 @@ sub alien_check_installed_version
   return if $ret;
   return $1 if $stdout =~ /patch ([0-9.]+)/i;
   return $1 if $stdout =~ /patch version ([0-9.])/i;
-  return 'unknwon';
+  return 'unknown';
 }
 
 sub alien_check_built_version
