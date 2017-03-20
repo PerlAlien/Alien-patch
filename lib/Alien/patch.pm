@@ -75,6 +75,11 @@ sub exe
   $^O eq 'MSWin32' ? 'patch --binary' : 'patch';
 }
 
+sub _vendor
+{
+  shift->runtime_prop->{my_vendor};
+}
+
 =head1 HELPERS
 
 =head2 patch

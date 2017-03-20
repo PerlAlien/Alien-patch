@@ -11,14 +11,24 @@ my $post_diag;
 
 $modules{$_} = $_ for qw(
   Alien::Base
-  Alien::Base::ModuleBuild
+  Alien::Build
+  Alien::Build::MM
   Capture::Tiny
-  File::ShareDir
+  ExtUtils::MakeMaker
   File::chdir
+  IPC::Cmd
+  Test2::Suite
+  Test::Alien
   Test::More
 );
 
-
+$post_diag = sub {
+  use Alien::patch;
+  diag "vendor       = @{[ Alien::patch->_vendor           ]}";
+  diag "version      = @{[ Alien::patch->config('version') ]}";
+  diag "install_type = @{[ Alien::patch->install_type      ]}";
+  diag "bin_dir      = $_" for Alien::patch->bin_dir;
+};
 
 my @modules = sort keys %modules;
 
