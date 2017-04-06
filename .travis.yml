@@ -5,6 +5,7 @@ install:
   - perlbrew list
   - cpanm -n App::af
   - af missing | cpanm
+  - cpanm -n Dist::Zilla
   - dzil authordeps --missing | cpanm -n
   - dzil listdeps --missing | cpanm -n
 
