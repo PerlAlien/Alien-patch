@@ -7,7 +7,7 @@ Find or build patch
     use Alien::patch ();
     use Env qw( @PATH );
     
-    unshift @ENV, Alien::patch->bin_dir;
+    unshift @PATH, Alien::patch->bin_dir;
     my $patch = Alien::patch->exe;
     system "$patch -p1 < foo.patch";
 
