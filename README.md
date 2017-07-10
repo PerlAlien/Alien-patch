@@ -78,7 +78,11 @@ removed, but not before 31 January 2018.
 
 # AUTHOR
 
-Graham Ollis <plicease@cpan.org>
+Author: Graham Ollis <plicease@cpan.org>
+
+Contributors:
+
+Zakariyya Mughal
 
 # COPYRIGHT AND LICENSE
 
