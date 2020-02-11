@@ -1,6 +1,7 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+  - Use https for better security.
 
 0.14      2018-01-31 11:59:05 -0500
   - implicit modification of PATH is now removed

@@ -12,7 +12,7 @@ plugin 'Probe::CommandLine' => (
 
 share {
   plugin 'Download' => (
-    url     => 'http://ftp.gnu.org/gnu/patch',
+    url     => 'https://ftp.gnu.org/gnu/patch',
     version => qr/^patch-([0-9\.]+)\.tar\.gz$/,
   );
   plugin 'Extract' => 'tar.gz';
