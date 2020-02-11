@@ -4,26 +4,30 @@ Find or build patch
 
 # SYNOPSIS
 
-    use Alien::patch ();
-    use Env qw( @PATH );
-    
-    unshift @PATH, Alien::patch->bin_dir;
-    my $patch = Alien::patch->exe;
-    system "$patch -p1 < foo.patch";
+```perl
+use Alien::patch ();
+use Env qw( @PATH );
+
+unshift @PATH, Alien::patch->bin_dir;
+my $patch = Alien::patch->exe;
+system "$patch -p1 < foo.patch";
+```
 
 Or with [Alien::Build::ModuleBuild](https://metacpan.org/pod/Alien::Build::ModuleBuild):
 
-    use Alien::Base::ModuleBuild;
-    Alien::Base::ModuleBuild->new(
-      ...
-      alien_bin_requires => {
-        'Alien::patch' => '0.08',
-      },
-      alien_build_commands => {
-        '%{patch} -p1 < foo.patch',
-      },
-      ...
-    )->create_build_script;
+```perl
+use Alien::Base::ModuleBuild;
+Alien::Base::ModuleBuild->new(
+  ...
+  alien_bin_requires => {
+    'Alien::patch' => '0.08',
+  },
+  alien_build_commands => {
+    '%{patch} -p1 < foo.patch',
+  },
+  ...
+)->create_build_script;
+```
 
 # DESCRIPTION
 
@@ -41,7 +45,9 @@ should work with this class.
 
 ## exe
 
-    my $exe = Alien::patch->exe;
+```perl
+my $exe = Alien::patch->exe;
+```
 
 Returns the command to run patch on your system.  For now it simply
 adds the `--binary` option on Windows (`MSWin32` but not `cygwin`)
@@ -51,7 +57,9 @@ which is usually what you want.
 
 ## patch
 
-    %{patch}
+```
+%{patch}
+```
 
 When used with [Alien::Base::ModuleBuild](https://metacpan.org/pod/Alien::Base::ModuleBuild) in a `alien_build_commands` or `alien_install_commands`,
 this helper will be replaced by either `patch` (Unix and cygwin) or `patch --binary` (MSWin32).
