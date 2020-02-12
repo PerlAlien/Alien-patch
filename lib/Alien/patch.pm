@@ -17,6 +17,21 @@ use Env qw( @PATH );
  my $patch = Alien::patch->exe;
  system "$patch -p1 < foo.patch";
 
+Or in your L<alienfile>:
+
+ use alienfile;
+ ...
+ share {
+    ...
+    # Alien-Build knows to automatically pull in Alien::patch
+    # so you do not need to specify it as a prereq.
+    # The %{.install.patch} directory is a shortcut for the
+    # `patch' directory in your dist, and gets copied into the
+    # dist share directory, so you can rebuild with `af' after
+    # install.
+    patch [ '%{patch} -p1 < %{.install.patch}/mypatch.patch' ];
+ };
+
 Or with L<Alien::Build::ModuleBuild>:
 
  use Alien::Base::ModuleBuild;
@@ -34,14 +49,14 @@ Or with L<Alien::Build::ModuleBuild>:
 =head1 DESCRIPTION
 
 Many environments provide the patch command, but a few do not.
-Using this module in your C<Build.PL> (or elsewhere) you can
+Using this module in your L<alienfile> (or elsewhere) you can
 make sure that patch will be available.  If the system provides
 it, then great, this module is a no-op.  If it does not, then
 it will download and install it into a private location so that
 it can be added to the C<PATH> when this module is used.
 
-This class is a subclass of L<Alien::Base>, so all of the methods documented there
-should work with this class.
+This class is a subclass of L<Alien::Base>, and works closely
+with L<Alien::Build> and L<alienfile>
 
 =head1 METHODS
 
@@ -84,6 +99,18 @@ sub alien_helper
     },
   }
 }
+
+=head1 SEE ALSO
+
+=over 4
+
+=item L<Alien>
+
+=item L<Alien::Build>
+
+=item L<alienfile>
+
+=back
 
 1;
 
