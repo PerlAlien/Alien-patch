@@ -17,22 +17,23 @@ share {
   plugin 'Extract' => 'tar.gz';
   plugin 'Build::Autoconf' => ();
 
-  if($^O eq 'MSWin32')
-  {
-    requires 'Path::Tiny';
-    # TODO: there is a bootstrapping problem here, applying a patch to the source
-    # code of patch itself.  Strawberry Perl comes with patch so we may not need
-    # this anyway.
-    # The filename is misnamed it is actually intended to be applied to 2.7.6
-    patch [
-      'patch -p1 --binary < %{.install.patch}/msys2-patch-2.7.1.patch',
-      sub {
-        # applying the above patch confuses the timestamps sending autoconf
-        # into a tailspin.  Avoid all that be touching the appropriate files.
-        Path::Tiny->new($_)->touch for grep { -f $_ } qw( aclocal.m4 configure Makefile.am Makefile.in );
-      },
-    ];
-  }
+  ## This doesn't work anyway.
+  #if($^O eq 'MSWin32')
+  #{
+  #  requires 'Path::Tiny';
+  #  # TODO: there is a bootstrapping problem here, applying a patch to the source
+  #  # code of patch itself.  Strawberry Perl comes with patch so we may not need
+  #  # this anyway.
+  #  # The filename is misnamed it is actually intended to be applied to 2.7.6
+  #  patch [
+  #    'patch -p1 --binary < %{.install.patch}/msys2-patch-2.7.1.patch',
+  #    sub {
+  #      # applying the above patch confuses the timestamps sending autoconf
+  #      # into a tailspin.  Avoid all that be touching the appropriate files.
+  #      Path::Tiny->new($_)->touch for grep { -f $_ } qw( aclocal.m4 configure Makefile.am Makefile.in );
+  #    },
+  #  ];
+  #}
 
   requires 'File::Basename';
 
